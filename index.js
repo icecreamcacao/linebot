@@ -1,4 +1,4 @@
-const { Client, middleware } = require("@line/bot-sdk");
+const { Client } = require("@line/bot-sdk");
 require("dotenv").config();
 const moment = require("moment-timezone");
 
@@ -16,6 +16,7 @@ let userMessageCount = {};  // { userId: { messageCount: number, lastUpdated: da
 const adminUserId = "98둘리🎃";  // 관리자의 LINE 사용자 ID로 설정
 
 module.exports = async (req, res) => {
+  // Webhook URL을 /webhook으로 설정해야 합니다.
   if (req.method === "POST") {
     try {
       const body = req.body;
